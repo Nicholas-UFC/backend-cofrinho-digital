@@ -25,7 +25,7 @@ Backend profissional para gestão financeira pessoal. Desenvolvido com **Django 
 git clone https://github.com/Nicholas-UFC/backend-cofrinho-digital.git
 
 2. Instale as dependências:
-pip install -r requirements.txt
+pip install -r requirements_dev.txt
 
 3. Crie um arquivo `.env` na raiz com suas credenciais:
 SECRET_KEY=sua_chave

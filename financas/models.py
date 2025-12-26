@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 # Modelo de categoria das transações para gerar uma chave extrangeira e facilitar analise
@@ -12,6 +12,7 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nome
+
 
 # Modelo das transações
 class Transacao(models.Model):
@@ -26,7 +27,7 @@ class Transacao(models.Model):
     data = models.DateField()
     tipo = models.CharField(max_length=10, choices=TIPOS)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
-    
+
     # Chave estrangeira: Para saber quem fez a transação
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 

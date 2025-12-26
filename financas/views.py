@@ -4,14 +4,13 @@ from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import AllowAny
 from rest_framework import filters, generics, permissions, viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from .models import Categoria, Transacao
-from .serializers import (CategoriaSerializer, RegisterSerializer,
-                          TransacaoSerializer)
+from .serializers import RegisterSerializer, TransacaoSerializer
 
 
 class CategoriaViewSet(viewsets.ModelViewSet):
@@ -86,8 +85,8 @@ class TransacaoViewSet(viewsets.ModelViewSet):
 
         # Preparando resposta HTTP para ser um arquivo
         response = HttpResponse(content_type="text/csv; charset=utf-8")
-        response['Content-Disposition'] = 'attachment; filename="meu_cofrinho.csv"'
-        response.write(u'\ufeff'.encode('utf8'))
+        response["Content-Disposition"] = 'attachment; filename="meu_cofrinho.csv"'
+        response.write("\ufeff".encode("utf8"))
 
         # Criando o escritor de csv
         writer = csv.writer(response)
@@ -106,6 +105,7 @@ class TransacaoViewSet(viewsets.ModelViewSet):
             )
 
         return response
+
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()

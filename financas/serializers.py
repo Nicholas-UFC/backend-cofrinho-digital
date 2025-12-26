@@ -15,6 +15,7 @@ class TransacaoSerializer(serializers.ModelSerializer):
         model = Transacao
         fields = ["id", "descricao", "valor", "data", "tipo", "categoria"]
 
+
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
@@ -26,6 +27,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(
             username=validated_data["username"],
             email=validated_data.get("email", ""),
-            password=validated_data["password"]
+            password=validated_data["password"],
         )
         return user

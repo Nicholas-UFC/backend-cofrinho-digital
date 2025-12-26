@@ -15,14 +15,37 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Transacao',
+            name="Transacao",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('descricao', models.CharField(max_length=200)),
-                ('valor', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('data', models.DateField()),
-                ('tipo', models.CharField(choices=[('RECEITA', 'Receita (Entrou Dinheiro)'), ('DESPESA', 'Despesa (Saiu Dinheiro)')], max_length=10)),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("descricao", models.CharField(max_length=200)),
+                ("valor", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("data", models.DateField()),
+                (
+                    "tipo",
+                    models.CharField(
+                        choices=[
+                            ("RECEITA", "Receita (Entrou Dinheiro)"),
+                            ("DESPESA", "Despesa (Saiu Dinheiro)"),
+                        ],
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

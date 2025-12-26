@@ -15,7 +15,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "jazzmin", # "jazzmin" deve vim primeiro que "django.contrib.admin"
+    "jazzmin",  # "jazzmin" deve vim primeiro que "django.contrib.admin"
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -59,24 +59,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT"),
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -93,21 +85,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LANGUAGE_CODE = "pt-br"
 
-# Internationalization
-# https://docs.djangoproject.com/en/6.0/topics/i18n/
-
-LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Sao_Paulo"
 
 USE_I18N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
 
@@ -143,28 +127,27 @@ CORS_ALLOW_ALL_ORIGINS = True
 JAZZMIN_SETTINGS = {
     # Título na aba do navegador
     "site_title": "Cofrinho Admin",
-    
     # Título no login e no menu
     "site_header": "Cofrinho Digital",
-    
     # Mensagem de boas-vindas no login
     "welcome_sign": "Bem-vindo ao Gerenciador Financeiro",
-    
     # Copyright no rodapé
     "copyright": "Cofrinho Digital Ltd",
-    
     # Modelo de pesquisa global (podes pesquisar transações em qualquer lugar)
     "search_model": "financas.Transacao",
-
     # Links rápidos no topo
     "topmenu_links": [
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "API Docs", "url": "/api/docs/", "new_window": True}, # Link para o Swagger!
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {
+            "name": "API Docs",
+            "url": "/api/docs/",
+            "new_window": True,
+        },  # Link para o Swagger!
     ],
 }
 
 # Personalizar a aparência
 JAZZMIN_UI_TWEAKS = {
-    "theme": "darkly", # Tenta também: darkly, slate, simplex
+    "theme": "darkly",  # Tenta também: darkly, slate, simplex
     "navbar": "navbar-dark",
 }
